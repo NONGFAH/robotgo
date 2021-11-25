@@ -1207,7 +1207,7 @@ func OpenImg(path string) ([]byte, error) {
 
 // SaveImg save the image by []byte
 func SaveImg(b []byte, path string) error {
-	return imgo.Save(path, b)
+	return nil
 }
 
 // SavePng save the image by image.Image
