@@ -380,15 +380,28 @@ void scrollMouseXY(int x, int y){
 }
 
 void grabAll(){
+#if defined(IS_MACOSX)
+// todo IS_MACOSX
+#elif defined(USE_X11)
+    Display *display = XGetMainDisplay();
     XGrabKeyboard(display,DefaultRootWindow(dpy),0,GrabModeAsync, GrabModeAsync,CurrentTime);
     XGrabPointer(display, DefaultRootWindow(dpy), True, 0, GrabModeAsync, GrabModeAsync, None, None, CurrentTime);
     XGrabButton(display, AnyButton, AnyModifier, DefaultRootWindow(dpy), True, 0, GrabModeAsync, GrabModeAsync, None, None);
+#elif defined(IS_WINDOWS)
+// todo IS_WINDOWS
+#endif
 }
 
 void unGrabAll(){
+#if defined(IS_MACOSX)
+    // todo IS_MACOSX
+#elif defined(USE_X11)
     XUngrabKeyboard(display,CurrentTime);
     XUngrabPointer(display,CurrentTime);
     XUngrabButton(display, AnyButton, AnyModifier, DefaultRootWindow(dpy));
+#elif defined(IS_WINDOWS)
+    // todo IS_WINDOWS
+#endif
 }
 
 /*
