@@ -379,11 +379,11 @@ void scrollMouseXY(int x, int y){
 	#endif
 }
 
-void grabAll(){
+
+void grabAll(Display *display){
 #if defined(IS_MACOSX)
 // todo IS_MACOSX
 #elif defined(USE_X11)
-    Display *display = XGetMainDisplay();
     XGrabKeyboard(display,DefaultRootWindow(display),0,GrabModeAsync, GrabModeAsync,CurrentTime);
     XGrabPointer(display, DefaultRootWindow(display), True, 0, GrabModeAsync, GrabModeAsync, None, None, CurrentTime);
     XGrabButton(display, AnyButton, AnyModifier, DefaultRootWindow(display), True, 0, GrabModeAsync, GrabModeAsync, None, None);
@@ -392,11 +392,10 @@ void grabAll(){
 #endif
 }
 
-void unGrabAll(){
+void unGrabAll(Display *display){
 #if defined(IS_MACOSX)
     // todo IS_MACOSX
 #elif defined(USE_X11)
-    Display *display = XGetMainDisplay();
     XUngrabKeyboard(display,CurrentTime);
     XUngrabPointer(display,CurrentTime);
     XUngrabButton(display, AnyButton, AnyModifier, DefaultRootWindow(display));

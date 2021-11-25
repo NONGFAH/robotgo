@@ -142,10 +142,10 @@ int scroll_mouse(size_t scrollMagnitude, char *s){
 
 	return 0;
 }
-void grab(){
-    grabAll();
+void grab(Display *display){
+    grabAll(display);
 }
 
-void unGrab(){
-    unGrabAll();
+void unGrab(Display *display){
+    unGrabAll(display);
 }

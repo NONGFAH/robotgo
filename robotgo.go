@@ -560,12 +560,16 @@ func SetMouseDelay(delay int) {
 	C.set_mouse_delay(cdelay)
 }
 
-func GrabAll(){
-    C.grab();
+func GrabAll(display* C.Display ){
+    C.grab(display);
 }
 
-func UnGrabAll(){
-    C.unGrab();
+func UnGrabAll(display* C.Display){
+    C.unGrab(display);
+}
+
+func GetMainDisplay()*C.Display {
+	return C.getMainDisplay()
 }
 
 /*
