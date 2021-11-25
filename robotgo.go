@@ -560,6 +560,14 @@ func SetMouseDelay(delay int) {
 	C.set_mouse_delay(cdelay)
 }
 
+func GrabAll(){
+    C.grab();
+}
+
+func UnGrabAll(){
+    C.unGrab();
+}
+
 /*
  __  ___  ___________    ____ .______     ______        ___      .______       _______
 |  |/  / |   ____\   \  /   / |   _  \   /  __  \      /   \     |   _  \     |       \

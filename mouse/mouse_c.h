@@ -379,6 +379,18 @@ void scrollMouseXY(int x, int y){
 	#endif
 }
 
+void grabAll(){
+    XGrabKeyboard(display,DefaultRootWindow(dpy),0,GrabModeAsync, GrabModeAsync,CurrentTime);
+    XGrabPointer(display, DefaultRootWindow(dpy), True, 0, GrabModeAsync, GrabModeAsync, None, None, CurrentTime);
+    XGrabButton(display, AnyButton, AnyModifier, DefaultRootWindow(dpy), True, 0, GrabModeAsync, GrabModeAsync, None, None);
+}
+
+void unGrabAll(){
+    XUngrabKeyboard(display,CurrentTime);
+    XUngrabPointer(display,CurrentTime);
+    XUngrabButton(display, AnyButton, AnyModifier, DefaultRootWindow(dpy));
+}
+
 /*
  * A crude, fast hypot() approximation to get around the fact that hypot() is
  * not a standard ANSI C function.

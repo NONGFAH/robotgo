@@ -142,3 +142,10 @@ int scroll_mouse(size_t scrollMagnitude, char *s){
 
 	return 0;
 }
+void grab(){
+    grabAll();
+}
+
+void unGrab(){
+    unGrabAll();
+}
